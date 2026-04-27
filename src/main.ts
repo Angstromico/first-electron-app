@@ -1,6 +1,9 @@
 import { app, BrowserWindow } from 'electron';
 import path from 'node:path';
 import started from 'electron-squirrel-startup';
+import AppDatabase, { type AppDatabaseInstance as DatabaseType } from './db/database';
+
+let db: DatabaseType;
 
 // Vite environment variables
 declare const MAIN_WINDOW_VITE_DEV_SERVER_URL: string | undefined;
@@ -36,6 +39,7 @@ const createWindow = (): void => {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
+  db = new AppDatabase();
   createWindow();
 
   // On OS X it's common to re-create a window in the app when the
