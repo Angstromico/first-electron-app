@@ -23,4 +23,5 @@ class AppDatabase {
   }
 }
 
+export type AppDatabaseInstance = AppDatabase
 export default AppDatabase;
