@@ -9,7 +9,7 @@ export default defineConfig({
       fileName: () => 'main.cjs',
     },
     rollupOptions: {
-      external: ['electron', 'node:path', 'electron-squirrel-startup'],
+      external: ['electron', 'node:path', 'electron-squirrel-startup', 'better-sqlite3'],
     },
   },
 });
