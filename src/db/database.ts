@@ -8,7 +8,6 @@ class AppDatabase {
   constructor() {
     const dbPath = path.join(app.getPath('userData'), 'todo.sqlite');
     
-    // Initialize the database
     this.db = new Database(dbPath);
     
     this.db.pragma('journal_mode = WAL');
