@@ -64,6 +64,9 @@ class AppDatabase {
     return info.changes > 0;
   }
 
+  close() {
+    this.db.close();
+  }
 }
 
 export type AppDatabaseInstance = AppDatabase
