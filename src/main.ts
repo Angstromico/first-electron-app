@@ -2,6 +2,7 @@ import { app, BrowserWindow } from 'electron';
 import path from 'node:path';
 import started from 'electron-squirrel-startup';
 import AppDatabase, { type AppDatabaseInstance as DatabaseType } from './db/database';
+import setUpIpcHandlers from './db/ipcHandlers';
 
 let db: DatabaseType;
 
@@ -40,6 +41,7 @@ const createWindow = (): void => {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   db = new AppDatabase();
+  setUpIpcHandlers(db);
   createWindow();
 
   // On OS X it's common to re-create a window in the app when the
